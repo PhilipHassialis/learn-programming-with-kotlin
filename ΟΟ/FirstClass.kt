@@ -2,15 +2,12 @@ package OO
 
 import java.time.LocalDate
 
-class Person(name: String, age: Int) {
-    var name: String
-    var age: Int
+class Person(var name: String, var age: Int) {
+
     var birthYear = LocalDate.now().year - age
 
     init {
         println("Object was created")
-        this.name = name
-        this.age = age
     }
 
     fun speak() {
@@ -30,7 +27,7 @@ class Person(name: String, age: Int) {
 }
 
 fun main() {
-    val person = Person("Philip", 45)
+    val person = Person("Philip Alexander", 45)
     person.speak()
     println("name is ${person.name}")
     person.greet("World")
