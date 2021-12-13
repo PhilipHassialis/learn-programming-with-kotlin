@@ -2,7 +2,11 @@ package OO
 
 import java.time.LocalDate
 
-open class Person(open val name: String, open var age: Int) {
+// simple class cannot be inherited at all - simple classes are final
+// open can be inherited and instantiated
+// abstract can be inherited only
+
+abstract class Person(open val name: String, open var age: Int) {
 
     var birthYear: Int
 
@@ -11,9 +15,8 @@ open class Person(open val name: String, open var age: Int) {
         birthYear = LocalDate.now().year - age
     }
 
-    fun speak() {
-        println("Hello!")
-    }
+    // abstract methods MUST be overriden and implemented
+    abstract fun speak()
 
     fun greet(name: String) {
         println("Hello $name")
@@ -30,11 +33,18 @@ open class Person(open val name: String, open var age: Int) {
 class Student(override val name: String, override var age: Int, val studentId: String) :
         Person(name, age) {
     fun isIntelligent() = true
+
+    override fun speak() {
+        println("Hi I am a student")
+    }
 }
 
 class Employee(override val name: String, override var age: Int) : Person(name, age) {
     fun receivePayment() {
         println("Received payment")
+    }
+    override fun speak() {
+        println("Hi I am an employee")
     }
 }
 
@@ -54,5 +64,8 @@ fun main() {
     val employee = Employee("Helen", 45)
     println(employee.getYearOfBirth())
 
+
     employee.receivePayment()
+
+    println(6/2*(1+2))
 }
