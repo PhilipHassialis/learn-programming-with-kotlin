@@ -64,8 +64,7 @@ fun main() {
     val employee = Employee("Helen", 45)
     println(employee.getYearOfBirth())
 
-
     employee.receivePayment()
 
-    println(6/2*(1+2))
+    println(6 / 2 * (1 + 2))
 }
