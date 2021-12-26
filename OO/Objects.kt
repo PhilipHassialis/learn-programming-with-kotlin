@@ -7,3 +7,9 @@ object Cache {
         return 0
     }
 }
+
+object CarFactory {
+    fun produceCar() {
+        println("producing a car")
+    }
+}

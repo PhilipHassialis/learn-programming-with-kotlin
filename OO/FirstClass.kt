@@ -1,5 +1,9 @@
 package OO
 
+import OO.CarColors.BLUE
+import OO.CarFactory.produceCar
+import functions.getCurrentDate
+import java.math.BigInteger
 import java.time.LocalDate
 
 // simple class cannot be inherited at all - simple classes are final
@@ -13,6 +17,10 @@ abstract class Person(open val name: String, open var age: Int) {
     init {
         println("Object was created")
         birthYear = LocalDate.now().year - age
+        val bigInt = BigInteger("3")
+        val myCurrentData = getCurrentDate()
+        produceCar()
+        val blue = BLUE
     }
 
     // abstract methods MUST be overriden and implemented
