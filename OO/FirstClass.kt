@@ -10,7 +10,7 @@ import java.time.LocalDate
 // open can be inherited and instantiated
 // abstract can be inherited only
 
-abstract class Person(open val name: String, open var age: Int) {
+abstract class PersonClass(open val name: String, open var age: Int) {
 
     var birthYear: Int
 
@@ -38,8 +38,8 @@ abstract class Person(open val name: String, open var age: Int) {
     fun getYearOfBirth(): Int = LocalDate.now().year - age
 }
 
-class Student(override val name: String, override var age: Int, val studentId: String) :
-        Person(name, age) {
+class StudentClass(override val name: String, override var age: Int, val studentId: String) :
+        PersonClass(name, age) {
     fun isIntelligent() = true
 
     override fun speak() {
@@ -47,7 +47,8 @@ class Student(override val name: String, override var age: Int, val studentId: S
     }
 }
 
-class Employee(override val name: String, override var age: Int) : Person(name, age) {
+class EmployeeClass(override val name: String, override var age: Int) : PersonClass(name, age) {
+
     fun receivePayment() {
         println("Received payment")
     }
@@ -63,13 +64,13 @@ fun main() {
     // person.greet("World")
     // println("year of birth is ${person.getYearOfBirth()}")
 
-    val student = Student("Philip", 45, "1234")
+    val student = StudentClass("Philip", 45, "1234")
     student.speak()
     student.greet("Alex")
 
     println(student.isIntelligent())
 
-    val employee = Employee("Helen", 45)
+    val employee = EmployeeClass("Helen", 45)
     println(employee.getYearOfBirth())
 
     employee.receivePayment()
