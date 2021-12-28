@@ -1,6 +1,6 @@
 package OO
 
-class Animal {
+open class Animal {
     var age: Int = 0
         get() = field
         set(value) {
@@ -10,6 +10,22 @@ class Animal {
         }
     val name = ""
         get() = field
+
+    private var myRealAge: Int = 14
+
+    protected val myRealName = "real name"
+
+    internal val isDangerous = true
+
+    public fun isOverTen(): Boolean {
+        return myRealAge > 10
+    }
+}
+
+class Verterbrae : Animal() {
+    fun introduceYourself() {
+        println(myRealName)
+    }
 }
 
 fun main() {
@@ -17,4 +33,7 @@ fun main() {
     animal.age = 10
     animal.age = -2
     println(animal.age)
+
+    var vert = Verterbrae()
+    vert.introduceYourself()
 }
