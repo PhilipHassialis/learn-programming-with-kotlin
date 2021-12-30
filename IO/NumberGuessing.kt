@@ -1,9 +1,7 @@
 package IO
 
-import java.util.Random
-
 fun main() {
-    val number = Random().nextInt(100) + 1
+    val number = (1..100).random()
     var input: String?
     var guess = -1
 
